@@ -1,0 +1,101 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title> Contactus form </title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} " type="text/css" media="all" />
+
+</head>
+
+<body>
+    <div class="w3l-loginblock signinform">
+        <div class="logo">
+            <a class="brand-logo" href="index.html"> contectus form</a>
+        </div>
+        <!-- main content -->
+            <div class="row map-content-9">
+                <div class="info-grids">
+                    <form  method="post" class="">
+                        {% csrf_token %}
+                        {% if a %}
+                        <div class="form-grid">
+                            <div class="input-field">
+                                <label> Username </label>
+                                <input type="text" name="name" id="email" value={{data.name}} required="" readonly>
+                            </div>
+
+                            <div class="input-field">
+                                <label>  Email </label>
+                                <input type="email" name="email" id="email" value={{data.email}} required="" readonly>
+                            </div>
+                            <div class="input-field">
+                                <label> Phone </label>
+                                <input type="number" name="phone" id="email" value={{data.phone}} required="" readonly>
+                            </div>
+                            <div class="input-field">
+                                <label> message </label>
+                                <input type="text" name="message" id="email" placeholder="message" required="">
+                            </div>
+                            
+                        </div>
+                        {% else %}
+                        <div class="form-grid">
+                            <div class="input-field">
+                                <label> Username </label>
+                                <input type="text" name="name" id="email" placeholder="Username" required="">
+                            </div>
+
+                            <div class="input-field">
+                                <label>  Email </label>
+                                <input type="email" name="email" id="email" placeholder=" Email" required="">
+                            </div>
+                            <div class="input-field">
+                                <label> Phone </label>
+                                <input type="number" name="phone" id="email" placeholder="Phone" required="">
+                            </div>
+                            <div class="input-field">
+                                <label> message </label>
+                                <input type="text" name="message" id="email" placeholder="message" required="">
+                            </div>
+                            
+                        </div>
+                        {% endif %}
+                     
+                        <button type="submit" class="btn btn-primary btn-style">contectus now</button>
+                       
+                    </form>
+                </div>
+                {% if message %}<script>alert("{{message}}")</script>{% endif %}
+                
+            </div>
+        <!-- //main content -->
+        
+    </div>
+
+    <!-- fontawesome v5-->
+    <script src="{% static 'js/fontawesome.js' %} "></script>
+
+</body>
+
+</html>
+
+{% endblock %}

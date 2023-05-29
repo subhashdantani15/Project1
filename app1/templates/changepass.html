@@ -1,0 +1,72 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+{% load static %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title> Change Password form </title>
+
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %} " type="text/css" media="all" />
+
+</head>
+
+<body>
+    <div class="w3l-loginblock signinform">
+        <div class="logo">
+            <a class="brand-logo" href="index.html"> Change Password form</a>
+        </div>
+        <!-- main content -->
+            <div class="row map-content-9">
+                <div class="info-grids">
+                    <form  method="post" class="">
+                        {% csrf_token %}
+                        <div class="form-grid">
+                            <div class="input-field">
+                                <label> Old Password </label>
+                                <input type="password" name="oldpass" id="email" placeholder="Enter Old Password" required="">
+                            </div>
+                            <div class="input-field">
+                                <label> New Password Password</label>
+                                <input type="password" name="newpass" id="Password" placeholder="Enter New Password Password" required="">
+                            </div>
+                            <div class="input-field">
+                                <label> Re-Enter  New Password </label>
+                                <input type="password" name="newpass1" id="Password" placeholder="Re-Enter  New Password" required="">
+                            </div>
+                        </div>
+                     
+                        <button type="submit" class="btn btn-primary btn-style">submit</button>
+                       
+                    </form>
+                </div>
+                
+            </div>
+        <!-- //main content -->
+        {% if message %}<script>alert("{{message}}")</script>{% endif %}
+        
+    </div>
+
+    <!-- fontawesome v5-->
+    <script src="{% static 'js/fontawesome.js' %} "></script>
+
+</body>
+
+</html>
+
+{% endblock %}

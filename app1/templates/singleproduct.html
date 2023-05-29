@@ -1,0 +1,40 @@
+{% extends 'common.html' %}
+
+{% block content %}
+                <!--content-->
+                <div class="col py-3">
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                    <div class="col-md-4 col-lg-4 mb-4 mb-lg-0">
+                        
+                        <div class="card">
+                            
+                            <img src="{{data.img.url}}"
+                                class="card-img-top" height="300px" " />
+                            
+                           
+                        </div>
+                        <div class="card-body" style="align-self: center;">
+                            <h5 class="mb-0" style="align-self:center;">{{data.name}}</h5>
+                            <h5 class="mb-0" style="align-self:center;">{{data.description}}</h5>
+                            <h5 class="mb-0" style="align-self:center;">₹ {{data.price}}</h5>
+                        </div>
+                    </div>
+                    
+            </div>
+            {% if data.quantity > 0 %}
+            <form method='POST' action="{% url 'buy' %}">
+                {% csrf_token %}
+                <input type="hidden" value="{{data.id}}" name='id'>
+          <button type="submit">Buy Now</button>
+            </form>
+            {% else %}
+            <p>Out of Stock</p>
+            {% endif %}
+        </div>
+       
+    </section>
+</div>
+    
+{% endblock %}        
